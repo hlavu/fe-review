@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Gradients</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>CSS Gradients</h1>
+
+    <p>
+      CSS gradients is used to display transitions between two or more colors,
+      it requires at least 2 color stops.
+    </p>
+
+    <p>
+      There are 3 types of gradients in CSS: <br />
+      - <b>Linear Gradients </b>(goes down/up/left/right/diagonally) <br />
+      - <b>Radial Gradients</b> (defined by their center) <br />
+      - <b>Conic Gradients</b> (rotated around a center point)
+    </p>
+    <p>
+      <i>Syntax:</i> background: linear-gradient(direction, "color1 stop" ,
+      "color2 stop", ..., "color-n stop"); <br />
+      <br />
+      direction: <br />
+      - keyword values:
+      <b
+        >to right, to left, to bottom(default), to top, to bottom left/right, to
+        top left/right.
+      </b>
+      <br />
+      - deg values: 90deg, -90deg, 180deg, 0 deg... <br />
+      - turn units: 0.33turn, 0.25 turn...
+
+      <br />
+      <br />
+
+      stop: <br />
+      - represents the color stop point at which that color will stop spanning
+      and change to the next color stop. <br />
+      - can be %, px or other units. <br />
+      - if stops are not provided, all colors will take an equal area to span.
+      <br />
+    </p>
+
+    <h2>Basic CSS patterns</h2>
+
+    <div class="exp">
+      <div>
+        <div class="exp1"></div>
+        <span>
+          <b> Two-color symmetric gradient: </b> <br />
+          background: linear-gradient(pink, purple);
+          <br />
+          <br />
+
+          Color stop points are not specified so two colors took an equal area
+          and met at the center of the element.
+        </span>
+      </div>
+
+      <div>
+        <div class="exp2"></div>
+        <span>
+          <b> Two-color asymmetric gradient: </b> <br />
+          background: linear-gradient(pink 80%, purple);
+          <br />
+          <br />
+          Pink color spans from 0 to 80% of the elem and purple spans from 80%
+          to 100%
+        </span>
+      </div>
+      <div>
+        <div class="exp3"></div>
+        <span>
+          <b>Two-color solid pattern: </b><br />
+          background: linear-gradient(pink 60%, purple 60%);
+          <br />
+          <br />
+          If two color stop points are provided equally, we will get a solid
+          color combination. <br />
+          <br />
+          Pink color spans from 0 to 60% of the elem and purple spans from 60%
+          to 100%
+        </span>
+      </div>
+
+      <div>
+        <div class="exp4"></div>
+        <span>
+          <b> Two-color directional pattern: </b> <br />
+          background: linear-gradient(to right, pink , purple );
+        </span>
+      </div>
+
+      <div>
+        <div class="exp5"></div>
+        <span>
+          <b> Multiple-color pattern: </b> <br />
+          background: linear-gradient(0.9turn, orange, pink, purple, rgb(23,
+          189, 167));
+        </span>
+      </div>
+    </div>
+
+    <h2>Intermediate patterns</h2>
+
+    <div class="exp">
+      <div>
+        <div class="exp-m1"></div>
+        <span>
+          <b> Vertical bars: </b> <br />
+          background-color: purple; <br />
+          background-image: linear-gradient( 90deg, transparent 50%, rgba(255,
+          255, 255, 0.5) 50% );
+          <br />
+          <br />
+
+          The 1st half shows original color, the 2nd half shows 50% transparent.
+        </span>
+      </div>
+
+      <div>
+        <div class="exp-m2"></div>
+        <span>
+          <b> Repeating vertical bars: </b> <br />
+          background-color: purple; <br />
+          background-image: linear-gradient( 90deg, transparent 50%, rgba(255,
+          255, 255, 0.5) 50% );
+          <br />
+          background-size: 20px;
+
+          <br />
+          <br />
+
+          The 1st half shows original color, the 2nd half shows 50% transparent.
+        </span>
+      </div>
+
+      <div>
+        <div class="exp-m3"></div>
+        <span>
+          <b> Checkerboard pattern : </b> <br />
+          background-color: purple;<br />
+          background-image: <br />
+          linear-gradient( transparent 50%, rgba(255, 255, 255, 0.5) 50% ),
+          <br />
+          linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.5) 50%);
+
+          <br />
+        </span>
+      </div>
+
+      <div>
+        <div class="exp-m4"></div>
+        <span>
+          <b> Checkerboard pattern : </b> <br />
+          background-color: purple;<br />
+          background-image: <br />
+          linear-gradient( transparent 50%, rgba(255, 255, 255, 0.5) 50% ),
+          <br />
+          linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.5) 50%);
+
+          <br />
+          background-size: 20px 20px;
+        </span>
+      </div>
+    </div>
+    <p>background-size: is used to set size of background-image.</p>
+
+    <h2>Advanced patterns</h2>
+    <p>
+      Using multiple linear-gradients and overlay them on top of one another to
+      create the shape.
+    </p>
+    <div class="exp">
+      <div>
+        <div class="exp-a1"></div>
+        <span>
+          <b> Diamond pattern : </b> <br />
+          background-color: purple;<br />
+          background-image: <br />
+          linear-gradient(135deg, pink 25%, transparent 25%), <br />
+          linear-gradient(225deg, pink 25%, transparent 25%), <br />
+          linear-gradient(45deg, pink 25%, transparent 25%), <br />
+          linear-gradient(315deg, pink 25%, transparent 25%);
+
+          <br />
+          <br />
+          <br />
+          Create each side of the diamond based on a specific angle
+        </span>
+      </div>
+
+      <div>
+        <div class="exp-a2"></div>
+        <span>
+          <b> Diamond pattern : </b> <br />
+          background-color: purple;<br />
+          background-image: <br />
+          linear-gradient(135deg, pink 25%, transparent 25%), <br />
+          linear-gradient(225deg, pink 25%, transparent 25%), <br />
+          linear-gradient(45deg, pink 25%, transparent 25%), <br />
+          linear-gradient(315deg, pink 25%, transparent 25%);<br />
+          background-size: 20px 20px;
+
+          <br />
+          <br />
+          <br />
+          Create each side of the diamond based on a specific angle
+        </span>
+      </div>
+
+      <div>
+        <div class="exp-a3"></div>
+        <span>
+          <b> Zigzag pattern : </b> <br />
+          background: <br />
+          linear-gradient(135deg, pink 25%, transparent 25%) 50px 0, <br />
+          linear-gradient(225deg, pink 25%, transparent 25%) 50px 0, <br />
+          linear-gradient(315deg, pink 25%, transparent 25%), <br />
+          linear-gradient(45deg, pink 25%, transparent 25%); <br />
+          background-color: purple; <br />
+          background-size: 20px 20px;
+          <br />
+          <br />
+          <br />
+
+          To offset the gradient, adding an x-offset of 50px and an y-offset of
+          0
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
