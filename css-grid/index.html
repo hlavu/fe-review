@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Grid CSS</title>
+  </head>
+  <body>
+    <h1>Basic grid</h1>
+
+    <p>
+      display: grid; <br />
+      grid-template-columns: col1-w col2-w ... coln-w; <br />
+      grid-template-rows: row1-h row2-h ... rown-h; <br />
+      grid-gap: 10px; <br />
+    </p>
+
+    <div class="container basic">
+      <div class="item1">w-100px h-200px</div>
+      <div class="item2">w-auto h-200px</div>
+      <div class="item3">w-100px h-200px</div>
+      <div class="item4">w-100px h-100px</div>
+      <div class="item5">w-auto h-100px</div>
+    </div>
+
+    <p>
+      When an elem's width is set to <b>auto</b>,
+      <b>its width = container's width - col1's width - col3's width</b>
+      <br />
+      When an elem's height is set to <b>auto</b>, its height will be the same
+      as the elem which has the highest height in the row.
+    </p>
+
+    <h1>
+      Grid using fraction units, repeat(numOfCols/Rows, fraction/px) and short
+      hand
+    </h1>
+    <p>
+      <b>Every item has an equal width</b> <br />
+      grid-template-columns: 1fr 1fr 1fr; <br />
+      grid-template-rows: 50px 50px; <br />
+
+      <br />
+      <b>Using repeat()</b> <br />
+      grid-template-columns: repeat(3, 1fr); <br />
+      grid-template-rows: repeat(2, 50px); <br />
+
+      <br />
+      <b>Short hand : grid-template: rows / cols; </b> <br />
+      grid-template: repeat(2, 50px) / repeat(3, 1fr);
+    </p>
+
+    <div class="container fraction-equal">
+      <div class="item1">1fr</div>
+      <div class="item2">1fr</div>
+      <div class="item3">1fr</div>
+      <div class="item4">1fr</div>
+      <div class="item5">1fr</div>
+    </div>
+
+    <p>
+      <b>Item2 is always twice as long as others</b> <br />
+      grid-template-columns: 1fr 2fr 1fr; <br />
+    </p>
+
+    <div class="container fraction-twice">
+      <div class="item1">1fr</div>
+      <div class="item2">2fr</div>
+      <div class="item3">1fr</div>
+      <div class="item4">1fr</div>
+      <div class="item5">2fr</div>
+    </div>
+
+    <h1>Positioning items</h1>
+
+    <p>
+      To make an element span horizontally from the left to the right using:
+      <br />
+      <b> grid-colum-start: the n column line; </b> <br />
+      <b> grid-colum-end: the n+x column line; </b> <br />
+
+      short hand: <b>grid-column: start/end OR start / span numberOfColumns;</b>
+      <br />
+      <br />
+
+      To make an element span vertically from the top to the bottom using:
+      <br />
+      <b> grid-row-start: the n row line; </b> <br />
+      <b> grid-row-end: the n+x row line; </b> <br />
+
+      short hand: <b>grid-row: start/end OR start / span numberOfRows;</b>
+      <br />
+      <br />
+
+      The number of column/row lines = number of columns/rows + 1; <br />
+      The first column/row line has index of <b>1</b> <br />
+      The last column/row line has index of <b>number of col/row + 1 OR -1</b>
+      <br />
+    </p>
+
+    <div class="container web-layout">
+      <div class="item1 header">Header grid-column: 2/-1</div>
+      <div class="item2 menu">Menu grid-row: 1/-2</div>
+      <div class="item3 content">Content grid-column: 2/-1</div>
+      <div class="item4 footer">Footer grid-column: 1/-1</div>
+    </div>
+
+    <br />
+
+    <div class="container web-layout">
+      <div class="item1 header1">Header grid-column: 1/-2</div>
+      <div class="item2 menu1">Menu grid-row: 1/-2 grid-column: -1/-2</div>
+      <div class="item3 content1">Content grid-column: 1/-2</div>
+      <div class="item4 footer1">Footer grid-column: 1/-1</div>
+    </div>
+
+    <h1>Template Areas</h1>
+    <p>
+      <b>Template areas can use in rectangle only.</b> <br />
+      <br />
+      Step1: <br />
+      - In the container style, define template area for each row and column.
+
+      <br />
+      <b>
+        grid-template-columns: repeat(12, 1fr); <br />
+        grid-template-rows: 100px auto 100px;
+        <br />
+        grid-template-areas:
+        <br />
+        "b a a a a a a a a a a a" ~ define columns of row1<br />
+        "b c c c c c c c c c c c" ~ define columns of row2<br />
+        "d d d d d d d d d d d d"; ~ define columns of row3 <br />
+      </b>
+      <br />
+      Step2: - Define <b>grid-area</b> for children items
+    </p>
+
+    <div class="container web-layout1">
+      <div class="item1 header">Header grid-area: a</div>
+      <div class="item2 menu">Menu grid-area: b</div>
+      <div class="item3 content">Content grid-area: c</div>
+      <div class="item4 footer">Footer grid-area: d</div>
+    </div>
+
+    <p>
+      <b>
+        grid-template-areas:
+        <br />
+        "a a a a a a a a a a a b" ~ define columns of row1<br />
+        "c c c c c c c c c c c b" ~ define columns of row2<br />
+        "d d d d d d d d d d d b"; ~ define columns of row3 <br />
+      </b>
+    </p>
+
+    <div class="container web-layout2">
+      <div class="item1 header">Header grid-area: a</div>
+      <div class="item2 menu">Menu grid-area: b</div>
+      <div class="item3 content">Content grid-area: c</div>
+      <div class="item4 footer">Footer grid-area: d</div>
+    </div>
+
+    <h1>Auto-fit and minmax()</h1>
+
+    <p>
+      <b>Auto-fit</b> helps to fit as many columns as possible in 1 row
+      <br />
+      <b>
+        minmax(the min width/height of a column/row, the max width/height of a
+        column/row )
+      </b>
+      defines the min and max values which the elem can achieve <br />
+      <br />
+      <b>
+        grid-template: repeat(2, 100px) / repeat(auto-fit, minmax(100px, 1fr));
+      </b>
+    </p>
+
+    <div class="container fit">
+      <div class="item1">1</div>
+      <div class="item2">2</div>
+      <div class="item3">3</div>
+      <div class="item4">4</div>
+      <div class="item5">5</div>
+      <div class="item1">6</div>
+      <div class="item1">1</div>
+      <div class="item2">2</div>
+      <div class="item3">3</div>
+      <div class="item4">4</div>
+      <div class="item5">5</div>
+      <div class="item1">6</div>
+    </div>
+
+    <h1>Implicit rows</h1>
+
+    <p>
+      <b> grid-auto-rows: 100px; </b> will auto create new rows if needed. The
+      newly created row will be 100px tall.
+    </p>
+
+    <h1>justify-content and align-content</h1>
+    <p>
+      <b>Using for container elem</b>
+    </p>
+    <h1>justify-items and align-items</h1>
+    <p>
+      <b>Using for container elem</b>
+    </p>
+    <h1>justify-self and align-self</h1>
+    <p>
+      <b>Using for children elems</b>
+    </p>
+
+    <h1>auto-fit and auto-fill</h1>
+    <p>
+      - auto-fit will make sure all elems are fit in the row <br />
+      - auto-fill will add new columns and let it blank even if there is no more
+      elem
+    </p>
+
+    <h1>grid-flow</h1>
+
+    <h1>Grid vs Flexbox</h1>
+    <p>
+      <b>Grid</b>: is build for 2 dimensional layout, focus on layout <br />
+      <b>flexbox</b>:is build for 1 dimensional layout from left to right, focus
+      on content
+    </p>
+  </body>
+</html>
