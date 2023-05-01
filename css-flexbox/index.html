@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Flexbox</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>CSS Flexbox</h1>
+
+      <img src="./flexbox-model.png" alt="flexbox-model" />
+      <ul>
+        <li><b>display:</b> flex | inline-flex</li>
+        <li>
+          <b>flex-direction:</b> row(default) | column
+
+          <div class="container">
+            <span>Select direction:</span> <br />
+            <label for="row" class="rowLabel">
+              <input type="radio" name="direction" checked id="row" />
+              row
+            </label>
+            <br />
+            <label for="column" class="colLabel">
+              <input type="radio" name="direction" id="column" />
+              column
+            </label>
+            <div class="flex-direction flexbox">
+              <div class="box">1</div>
+              <div class="box">2</div>
+              <div class="box">3</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <b>flex-wrap:</b> nowrap(default) | wrap | wrap-reverse
+
+          <div class="container">
+            <span>Select wrap style:</span> <br />
+            <label for="nowrap" class="nowrapLabel">
+              <input type="radio" name="wrap" checked id="nowrap" />
+              nowrap
+            </label>
+            <br />
+            <label for="wrap" class="wrapLabel">
+              <input type="radio" name="wrap" id="wrap" />
+              wrap
+            </label>
+            <br />
+            <label for="wrapR" class="wrapRLabel">
+              <input type="radio" name="wrap" id="wrapR" />
+              wrap-reverse
+            </label>
+            <div class="flex-wrap flexbox">
+              <div class="box">1</div>
+              <div class="box">2</div>
+              <div class="box">3</div>
+              <div class="box">4</div>
+              <div class="box">5</div>
+              <div class="box">6</div>
+              <div class="box">7</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <b>flex-basis:</b> length
+
+          <div class="container">
+            <span>Select item width:</span> <br />
+            <label for="auto" class="autoLabel">
+              <input type="radio" name="flex-basis" id="auto" />
+              auto
+            </label>
+            <br />
+            <label for="length" class="lengthLabel">
+              <input type="radio" name="flex-basis" id="length" />
+              200px
+            </label>
+            <br />
+            <label for="percent" class="percentLabel">
+              <input type="radio" name="flex-basis" id="percent" />
+              50%
+            </label>
+
+            <div class="flex-basis flexbox">
+              <div class="box">1</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <b>justify-content:</b> flex-start(default) | flex-end | center |
+          space-between | space-around | space-evenly
+
+          <div class="container">
+            <span>Select justify value:</span> <br />
+            <label for="start" class="startLabel">
+              <input type="radio" name="justify-content" id="start" checked />
+              flex-start
+            </label>
+            <br />
+            <label for="end" class="endLabel">
+              <input type="radio" name="justify-content" id="end" />
+              flex-end
+            </label>
+            <br />
+            <label for="center" class="centerLabel">
+              <input type="radio" name="justify-content" id="center" />
+              center
+            </label>
+            <br />
+            <label for="between" class="betweenLabel">
+              <input type="radio" name="justify-content" id="between" />
+              space-between
+            </label>
+            <br />
+            <label for="around" class="aroundLabel">
+              <input type="radio" name="justify-content" id="around" />
+              space-around
+            </label>
+            <br />
+            <label for="evenly" class="evenlyLabel">
+              <input type="radio" name="justify-content" id="evenly" />
+              space-evenly
+            </label>
+            <br />
+
+            <div class="flex-justify flexbox">
+              <div class="box">1</div>
+              <div class="box">2</div>
+              <div class="box">3</div>
+            </div>
+          </div>
+        </li>
+        <li><b>justify-self:</b> flex-start | center | flex-end</li>
+        <li>
+          <b>align-items:</b> flex-start | center | flex-end
+
+          <div class="container">
+            <span>Select align value:</span> <br />
+            <label for="startAl" class="startAlLabel">
+              <input type="radio" name="align-item" id="startAl" checked />
+              flex-start
+            </label>
+            <br />
+            <label for="endAl" class="endAlLabel">
+              <input type="radio" name="align-item" id="endAl" />
+              flex-end
+            </label>
+            <br />
+            <label for="centerAl" class="centerAlLabel">
+              <input type="radio" name="align-item" id="centerAl" />
+              center
+            </label>
+            <br />
+
+            <div class="flex-align flexbox">
+              <div class="box">1</div>
+              <div class="box">2</div>
+              <div class="box">3</div>
+            </div>
+          </div>
+        </li>
+        <li><b>align-self:</b>flex-start | center | flex-end</li>
+        <li><b>flex-grow:</b> number</li>
+        <li><b>flex-shrink:</b> number</li>
+        <li><b>order:</b> number</li>
+
+        <div class="order flexbox">
+          <div class="box box-1">1</div>
+          <div class="box box-2">2</div>
+          <div class="box box-3">3</div>
+        </div>
+        <br />
+        <br />
+        <li><b>flex:</b> flex-grow | flex-shrink | flex-basis</li>
+        <li><b>flex-flow:</b> flex-direction | flex-wrap</li>
+      </ul>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
